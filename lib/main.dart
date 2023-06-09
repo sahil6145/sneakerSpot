@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sneaker_spot/pages/Home.dart';
 import 'package:sneaker_spot/pages/Login_pg1.dart';
 import 'package:sneaker_spot/pages/Login_pg2.dart';
 import 'package:sneaker_spot/pages/Sign_in.dart';
@@ -14,7 +15,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Material(
-        child: Sign_inPg(),
+        child: Home(),
       ),
       theme: ThemeData(
         fontFamily: 'Raleway',
