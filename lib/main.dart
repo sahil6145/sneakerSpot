@@ -3,6 +3,7 @@ import 'package:sneaker_spot/pages/Home.dart';
 import 'package:sneaker_spot/pages/Login_pg1.dart';
 import 'package:sneaker_spot/pages/Login_pg2.dart';
 import 'package:sneaker_spot/pages/Sign_in.dart';
+import 'package:sneaker_spot/utilities/routes.dart';
 
 void main() {
   runApp(const MyApp());
@@ -14,9 +15,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: Material(
-        child: Home(),
-      ),
+      home: Material(),
       theme: ThemeData(
         fontFamily: 'Raleway',
         textTheme: TextTheme(
@@ -27,6 +26,13 @@ class MyApp extends StatelessWidget {
           ),
         ),
       ),
+      initialRoute: Myroutes.Initial_login,
+      routes: {
+        Myroutes.SigninRoute: (context) => Sign_inPg(),
+        Myroutes.HomeRoute: (context) => Home(),
+        Myroutes.loginRoute: (context) => Login_pg(),
+        Myroutes.Initial_login: (context) => Login(),
+      },
     );
   }
 }

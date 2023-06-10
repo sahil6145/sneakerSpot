@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:sneaker_spot/consts.dart';
 import 'package:sneaker_spot/Refactor/Login_button.dart';
+import 'package:sneaker_spot/utilities/routes.dart';
 
 enum Button {
   login,
@@ -24,7 +25,7 @@ class _LoginState extends State<Login> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      decoration: BoxDecoration(
+      decoration: const BoxDecoration(
         image: DecorationImage(
           image: AssetImage("images/bg.png"),
           fit: BoxFit.cover,
@@ -36,16 +37,20 @@ class _LoginState extends State<Login> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              SizedBox(
+              const SizedBox(
                 height: 400,
               ),
               GestureDetector(
                 onTap: () {
-                  setState(() {
-                    print("Login");
-                    selected_buttons = Button.login;
-                    //selected_Button = Login_pg.Login;
-                  });
+                  setState(
+                    () {
+                      Future.delayed(
+                          const Duration(seconds: 1),
+                          () => Navigator.pushNamed(
+                              context, Myroutes.loginRoute));
+                      selected_buttons = Button.login;
+                    },
+                  );
                 },
                 child: Sign_in_Buttons(
                   buttonName: 'Login',
@@ -54,16 +59,20 @@ class _LoginState extends State<Login> {
                       : inActiveColour,
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 50,
               ),
               GestureDetector(
                 onTap: () {
-                  setState(() {
-                    //selected_Button = Login_pg.Sign_in;
-                    selected_buttons = Button.sign_in;
-                    print("Sign_in");
-                  });
+                  setState(
+                    () {
+                      selected_buttons = Button.sign_in;
+                      Future.delayed(
+                          const Duration(seconds: 1),
+                          () => Navigator.pushNamed(
+                              context, Myroutes.SigninRoute));
+                    },
+                  );
                 },
                 child: Sign_in_Buttons(
                   buttonName: 'Sign in',

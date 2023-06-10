@@ -1,6 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:sneaker_spot/consts.dart';
+import 'package:sneaker_spot/pages/Home.dart';
+import 'package:sneaker_spot/utilities/routes.dart';
 import '../Refactor/textfield.dart';
 import 'package:sneaker_spot/specialVariable.dart';
 
@@ -17,7 +19,7 @@ class _Sign_inPgState extends State<Sign_inPg> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      decoration: BoxDecoration(
+      decoration: const BoxDecoration(
         image: DecorationImage(
           image: AssetImage("images/login_page1.png"),
           fit: BoxFit.fill,
@@ -29,16 +31,16 @@ class _Sign_inPgState extends State<Sign_inPg> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              SizedBox(
+              const SizedBox(
                 height: 300,
               ),
               Textfield('Name', 'Enter your name', false,
-                  Icon(CupertinoIcons.person)),
+                  const Icon(CupertinoIcons.person)),
               Textfield(
                 'Email Id',
                 'Enter your email id',
                 false,
-                Icon(
+                const Icon(
                   CupertinoIcons.mail,
                   color: Colors.black26,
                 ),
@@ -47,7 +49,7 @@ class _Sign_inPgState extends State<Sign_inPg> {
                 'Password',
                 'Enter your password',
                 true,
-                Icon(
+                const Icon(
                   CupertinoIcons.eye_slash,
                   color: Colors.black26,
                 ),
@@ -56,7 +58,7 @@ class _Sign_inPgState extends State<Sign_inPg> {
                 'Confirm password',
                 'Enter your password again',
                 true,
-                Icon(
+                const Icon(
                   CupertinoIcons.eye_slash,
                   color: Colors.black26,
                 ),
@@ -64,6 +66,8 @@ class _Sign_inPgState extends State<Sign_inPg> {
               GestureDetector(
                 onTap: () {
                   setState(() {
+                    Future.delayed(const Duration(seconds: 1),
+                        () => Navigator.pushNamed(context, Myroutes.HomeRoute));
                     selected = Button.sign_in;
                   });
                 },

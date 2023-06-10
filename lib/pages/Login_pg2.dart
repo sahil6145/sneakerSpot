@@ -5,6 +5,7 @@ import 'package:sneaker_spot/Refactor/textfield.dart';
 import 'package:sneaker_spot/consts.dart';
 import 'package:sneaker_spot/specialVariable.dart';
 import 'package:cupertino_icons/cupertino_icons.dart';
+import 'package:sneaker_spot/utilities/routes.dart';
 
 Button selected = Button.sign_in;
 
@@ -60,13 +61,14 @@ class _Login_pgState extends State<Login_pg> {
                 ),
               ),
               Textfield(
-                  'Enter your password',
-                  'Password',
-                  true,
-                  Icon(
-                    CupertinoIcons.eye_slash,
-                    color: Colors.black,
-                  )),
+                'Enter your password',
+                'Password',
+                true,
+                Icon(
+                  CupertinoIcons.eye_slash,
+                  color: Colors.black,
+                ),
+              ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
@@ -79,7 +81,7 @@ class _Login_pgState extends State<Login_pg> {
                       },
                       child: Text(
                         "Fotgot Password ?",
-                        // textAlign: TextAlign.,
+                        style: textStyle,
                       ),
                     ),
                   ),
@@ -92,6 +94,8 @@ class _Login_pgState extends State<Login_pg> {
                 onTap: () {
                   setState(() {
                     selected = Button.login;
+                    Future.delayed(Duration(seconds: 1),
+                        () => Navigator.pushNamed(context, Myroutes.HomeRoute));
                   });
                 },
                 child: Container(

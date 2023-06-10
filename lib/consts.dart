@@ -32,6 +32,14 @@ const kgradiant = LinearGradient(
   begin: Alignment.topCenter,
   end: Alignment.bottomCenter,
 );
+const backgroundGradiant = LinearGradient(
+  colors: [
+    Color.fromRGBO(105, 164, 173, 1),
+    Color.fromRGBO(240, 241, 242, 1),
+  ],
+  begin: Alignment.topCenter,
+  end: Alignment.bottomCenter,
+);
 
 const textStyle = TextStyle(
   fontFamily: 'Raleway',
