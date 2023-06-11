@@ -29,7 +29,7 @@ class Home_container extends StatelessWidget {
             ),
           ),
         ),
-        khight1,
+       
         Align(
           alignment: Alignment.bottomCenter,
           child: Text(

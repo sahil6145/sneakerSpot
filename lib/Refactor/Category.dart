@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class Categorybuttons extends StatelessWidget {
-  Categorybuttons(this.colors, this.childCard, this.onPress);
+  Categorybuttons(this.childCard, this.onPress, this.colors);
   final Color colors;
   final Widget childCard;
   final VoidCallback onPress;

@@ -5,8 +5,77 @@ import 'package:sneaker_spot/Refactor/home_main_container.dart';
 
 import '../Refactor/Category.dart';
 
-class Home extends StatelessWidget {
-  const Home({super.key});
+enum Card_categgory { All, Runninng, Formal, Jordens, Sneakers }
+
+class Home extends StatefulWidget {
+  @override
+  State<Home> createState() => _HomeState();
+}
+
+class _HomeState extends State<Home> {
+  Color all = inActiveColour;
+
+  Color Running = inActiveColour;
+
+  Color Jordens = inActiveColour;
+
+  Color Formal = inActiveColour;
+
+  Color Sneakers = inActiveColour;
+
+  void updateButtonColor(Card_categgory selectedButton) {
+    if (selectedButton == Card_categgory.Runninng) {
+      if (Running == inActiveColour) {
+        all = inActiveColour;
+        Running = activeColour;
+        Sneakers = inActiveColour;
+        Formal = inActiveColour;
+        Jordens = inActiveColour;
+      } else {
+        Running = inActiveColour;
+      }
+    } else if (selectedButton == Card_categgory.All) {
+      if (selectedButton == Card_categgory.All) {
+        all = activeColour;
+        Running = inActiveColour;
+        Sneakers = inActiveColour;
+        Formal = inActiveColour;
+        Jordens = inActiveColour;
+      } else {
+        all = inActiveColour;
+      }
+    } else if (selectedButton == Card_categgory.Formal) {
+      if (selectedButton == Card_categgory.Formal) {
+        all = inActiveColour;
+        Running = inActiveColour;
+        Sneakers = inActiveColour;
+        Formal = activeColour;
+        Jordens = inActiveColour;
+      } else {
+        Formal = inActiveColour;
+      }
+    } else if (selectedButton == Card_categgory.Jordens) {
+      if (selectedButton == Card_categgory.Jordens) {
+        all = inActiveColour;
+        Running = inActiveColour;
+        Sneakers = inActiveColour;
+        Formal = inActiveColour;
+        Jordens = activeColour;
+      } else {
+        Jordens = inActiveColour;
+      }
+    } else {
+      if (selectedButton == Card_categgory.Sneakers) {
+        all = inActiveColour;
+        Running = inActiveColour;
+        Sneakers = activeColour;
+        Formal = inActiveColour;
+        Jordens = inActiveColour;
+      } else {
+        Sneakers = inActiveColour;
+      }
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -114,45 +183,70 @@ class Home extends StatelessWidget {
                     kgap1,
                     kgap,
                     Categorybuttons(
-                      activeColour,
                       const Text(
                         'ALL',
                         style: textStyle,
                       ),
-                      () {},
+                      () {
+                        setState(() {
+                          updateButtonColor(Card_categgory.All);
+                        });
+                      },
+                      all,
                     ),
                     kgap,
                     Categorybuttons(
-                        activeColour,
-                        const Text(
-                          'RUNNING',
-                          style: textStyle,
-                        ),
-                        () {}),
+                      const Text(
+                        'RUNNING',
+                        style: textStyle,
+                      ),
+                      () {
+                        setState(() {
+                          updateButtonColor(Card_categgory.Runninng);
+                        });
+                        print(2);
+                      },
+                      Running,
+                    ),
                     kgap,
                     Categorybuttons(
-                        activeColour,
-                        const Text(
-                          'FORMAL',
-                          style: textStyle,
-                        ),
-                        () {}),
+                      const Text(
+                        'FORMAL',
+                        style: textStyle,
+                      ),
+                      () {
+                        setState(() {
+                          updateButtonColor(Card_categgory.Formal);
+                        });
+                      },
+                      Formal,
+                    ),
                     kgap,
                     Categorybuttons(
-                        activeColour,
-                        const Text(
-                          "JORDENS",
-                          style: textStyle,
-                        ),
-                        () {}),
+                      const Text(
+                        "JORDENS",
+                        style: textStyle,
+                      ),
+                      () {
+                        setState(() {
+                          updateButtonColor(Card_categgory.Jordens);
+                        });
+                      },
+                      Jordens,
+                    ),
                     kgap,
                     Categorybuttons(
-                        activeColour,
-                        const Text(
-                          'SNEAKERS',
-                          style: textStyle,
-                        ),
-                        () {}),
+                      const Text(
+                        'SNEAKERS',
+                        style: textStyle,
+                      ),
+                      () {
+                        setState(() {
+                          updateButtonColor(Card_categgory.Sneakers);
+                        });
+                      },
+                      Sneakers,
+                    ),
                   ],
                 ),
                 khight1,

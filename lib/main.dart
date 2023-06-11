@@ -26,7 +26,7 @@ class MyApp extends StatelessWidget {
           ),
         ),
       ),
-      initialRoute: Myroutes.Initial_login,
+      initialRoute: Myroutes.HomeRoute,
       routes: {
         Myroutes.SigninRoute: (context) => Sign_inPg(),
         Myroutes.HomeRoute: (context) => Home(),
