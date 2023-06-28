@@ -1,6 +1,5 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-
 import 'package:sneaker_spot/Refactor/textfield.dart';
 import 'package:sneaker_spot/consts.dart';
 import 'package:sneaker_spot/specialVariable.dart';
@@ -33,23 +32,22 @@ class _Login_pgState extends State<Login_pg> {
               const SizedBox(
                 height: 140,
               ),
-              const Text(
-                "WELCOME",
-                style: TextStyle(
-                    fontFamily: 'Raleway',
-                    fontWeight: FontWeight.bold,
-                    fontSize: 35),
-              ),
-              const SizedBox(
-                height: 10,
-              ),
-              const Text(
-                "GLAD TO SEE YOU ",
-                style: TextStyle(
-                  fontFamily: 'Raleway',
-                  fontWeight: FontWeight.bold,
-                  fontSize: 16,
-                ),
+              AnimatedTextKit(
+                totalRepeatCount: 20,
+                animatedTexts: [
+                  TypewriterAnimatedText(
+                    'WELCOME',
+                    textStyle:
+                        const TextStyle(color: Colors.black, fontSize: 35),
+                    speed: const Duration(milliseconds: 100),
+                  ),
+                  TypewriterAnimatedText(
+                    'GLAD TO SEE YOU',
+                    textStyle:
+                        const TextStyle(color: Colors.black, fontSize: 16),
+                    speed: const Duration(milliseconds: 100),
+                  ),
+                ],
               ),
               Textfield(
                 'Enter your Email',

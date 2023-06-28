@@ -15,15 +15,20 @@ class Textfield extends StatelessWidget {
       child: TextFormField(
         obscureText: obscure,
         decoration: InputDecoration(
+          enabledBorder: const OutlineInputBorder(
+            borderSide: BorderSide(color: Colors.black),
+          ),
+          focusedBorder: const OutlineInputBorder(
+              borderSide: BorderSide(color: Colors.black)),
           suffixIcon: IconData,
           border: OutlineInputBorder(),
           labelText: lable,
           hintText: hintLable,
           labelStyle: TextStyle(
-            fontFamily: "Cormorant Garamond",
-            fontSize: 19,
-            fontWeight: FontWeight.w800,
-          ),
+              fontFamily: "Cormorant Garamond",
+              fontSize: 19,
+              fontWeight: FontWeight.w800,
+              color: Colors.black),
           hintStyle: TextStyle(
             fontFamily: "Cormorant Garamond",
             fontSize: 19,
