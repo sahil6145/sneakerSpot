@@ -2,10 +2,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:sneaker_spot/consts.dart';
 import 'package:sneaker_spot/Refactor/home_main_container.dart';
-
-import '../Refactor/Category.dart';
-
-enum Card_categgory { All, Runninng, Formal, Jordens, Sneakers }
+import 'package:sneaker_spot/specialVariable.dart';
+import 'package:sneaker_spot/utilities/routes.dart';
 
 class Home extends StatefulWidget {
   @override
@@ -13,69 +11,7 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
-  Color all = inActiveColour;
-
-  Color Running = inActiveColour;
-
-  Color Jordens = inActiveColour;
-
-  Color Formal = inActiveColour;
-
-  Color Sneakers = inActiveColour;
-
-  void updateButtonColor(Card_categgory selectedButton) {
-    if (selectedButton == Card_categgory.Runninng) {
-      if (Running == inActiveColour) {
-        all = inActiveColour;
-        Running = activeColour;
-        Sneakers = inActiveColour;
-        Formal = inActiveColour;
-        Jordens = inActiveColour;
-      } else {
-        Running = inActiveColour;
-      }
-    } else if (selectedButton == Card_categgory.All) {
-      if (selectedButton == Card_categgory.All) {
-        all = activeColour;
-        Running = inActiveColour;
-        Sneakers = inActiveColour;
-        Formal = inActiveColour;
-        Jordens = inActiveColour;
-      } else {
-        all = inActiveColour;
-      }
-    } else if (selectedButton == Card_categgory.Formal) {
-      if (selectedButton == Card_categgory.Formal) {
-        all = inActiveColour;
-        Running = inActiveColour;
-        Sneakers = inActiveColour;
-        Formal = activeColour;
-        Jordens = inActiveColour;
-      } else {
-        Formal = inActiveColour;
-      }
-    } else if (selectedButton == Card_categgory.Jordens) {
-      if (selectedButton == Card_categgory.Jordens) {
-        all = inActiveColour;
-        Running = inActiveColour;
-        Sneakers = inActiveColour;
-        Formal = inActiveColour;
-        Jordens = activeColour;
-      } else {
-        Jordens = inActiveColour;
-      }
-    } else {
-      if (selectedButton == Card_categgory.Sneakers) {
-        all = inActiveColour;
-        Running = inActiveColour;
-        Sneakers = activeColour;
-        Formal = inActiveColour;
-        Jordens = inActiveColour;
-      } else {
-        Sneakers = inActiveColour;
-      }
-    }
-  }
+  Functions buttons = Functions();
 
   @override
   Widget build(BuildContext context) {
@@ -123,6 +59,7 @@ class _HomeState extends State<Home> {
                   ],
                 ),
                 Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
                     const SizedBox(
                       height: 70,
@@ -131,6 +68,7 @@ class _HomeState extends State<Home> {
                     const Text(
                       'CATEGORY',
                       style: TextStyle(
+                        fontWeight: FontWeight.bold,
                         fontSize: 22,
                         letterSpacing: 5,
                         fontFamily: 'Cormorant Garamond',
@@ -139,121 +77,54 @@ class _HomeState extends State<Home> {
                     const SizedBox(
                       width: 16,
                     ),
-                    GestureDetector(
-                      onTap: () {},
-                      child: const Icon(CupertinoIcons.search),
-                    ),
-                    kgap,
-                    GestureDetector(
-                      onTap: () {},
-                      child: const Icon(CupertinoIcons.heart),
-                    ),
-                    kgap,
-                    GestureDetector(
-                      onTap: () {},
-                      child: const Icon(CupertinoIcons.bag),
-                    ),
-                    kgap,
-                    kgap1,
-                    kgap1,
                     Container(
-                      height: 50,
-                      width: 90,
                       decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(20),
-                        gradient: kgradiant,
+                        borderRadius: BorderRadius.circular(5),
+                        border: Border.all(),
+                        color: Colors.white,
                       ),
-                      child: const Center(
-                        child: Text(
-                          'HOME',
-                          style: TextStyle(
-                            fontFamily: 'Cormorant Garamond',
-                            fontWeight: FontWeight.bold,
-                            fontSize: 20,
-                          ),
+                      height: 28,
+                      child: DropdownButton<String>(
+                        focusColor: Color.fromARGB(0, 255, 255, 255),
+                        elevation: 1,
+                        alignment: Alignment.center,
+                        style: TextStyle(
+                          color: Colors.black,
                         ),
+                        hint: Text(
+                          'SHOES BRANDS',
+                          style: TextStyle(
+                              fontSize: 12, fontWeight: FontWeight.bold),
+                        ),
+                        items: const [
+                          DropdownMenuItem(
+                            child: Text("NIKE"),
+                            value: 'Nike',
+                          ),
+                          DropdownMenuItem(
+                            child: Text("PUMA"),
+                            value: 'Puma',
+                          ),
+                          DropdownMenuItem(
+                            child: Text("ADIDAS"),
+                            value: 'Adidas',
+                          ),
+                        ],
+                        onChanged: (value) {
+                          // here we have add the navigator so that we can go to the brands pages
+                          print(value);
+                        },
                       ),
                     ),
                   ],
                 ),
-                khight1,
-                Row(
-                  children: [
-                    kgap1,
-                    kgap1,
-                    kgap,
-                    Categorybuttons(
-                      const Text(
-                        'ALL',
-                        style: textStyle,
-                      ),
-                      () {
-                        setState(() {
-                          updateButtonColor(Card_categgory.All);
-                        });
-                      },
-                      all,
-                    ),
-                    kgap,
-                    Categorybuttons(
-                      const Text(
-                        'RUNNING',
-                        style: textStyle,
-                      ),
-                      () {
-                        setState(() {
-                          updateButtonColor(Card_categgory.Runninng);
-                        });
-                        print(2);
-                      },
-                      Running,
-                    ),
-                    kgap,
-                    Categorybuttons(
-                      const Text(
-                        'FORMAL',
-                        style: textStyle,
-                      ),
-                      () {
-                        setState(() {
-                          updateButtonColor(Card_categgory.Formal);
-                        });
-                      },
-                      Formal,
-                    ),
-                    kgap,
-                    Categorybuttons(
-                      const Text(
-                        "JORDENS",
-                        style: textStyle,
-                      ),
-                      () {
-                        setState(() {
-                          updateButtonColor(Card_categgory.Jordens);
-                        });
-                      },
-                      Jordens,
-                    ),
-                    kgap,
-                    Categorybuttons(
-                      const Text(
-                        'SNEAKERS',
-                        style: textStyle,
-                      ),
-                      () {
-                        setState(() {
-                          updateButtonColor(Card_categgory.Sneakers);
-                        });
-                      },
-                      Sneakers,
-                    ),
-                  ],
-                ),
-                khight1,
-                khight1,
                 Home_container(
                   'NEW ARRIVALS',
-                  () {},
+                  () {
+                    setState(() {
+                      Navigator.pushNamed(context, Myroutes.NikeShoes);
+                    });
+                  },
                   const Image(
                     image: NetworkImage(
                         'https://www.si.com/.image/ar_1:1%2Cc_fill%2Ccs_srgb%2Cfl_progressive%2Cg_xy_center%2Cq_auto:good%2Cw_1200%2Cx_2326%2Cy_2185/MTkzMjEwNDg3MDU4NDc0OTE1/usatsi_19186924.jpg'),
@@ -276,13 +147,6 @@ class _HomeState extends State<Home> {
                     image: NetworkImage(
                         'https://media.gq.com/photos/63eba1b2275d2fef78a425c2/3:2/w_1686,h_1124,c_limit/nike-running-shoes-streakfly-invincible.jpg'),
                     fit: BoxFit.cover,
-                  ),
-                ),
-                const Text(
-                  "RECOMENDED ONES",
-                  style: TextStyle(
-                    fontFamily: 'Cormorant Garamond Bold',
-                    fontSize: 20,
                   ),
                 ),
                 khight1,
@@ -322,6 +186,13 @@ class _HomeState extends State<Home> {
                   ),
                 ),
                 khight1,
+                const Text(
+                  "RECOMENDED ONES",
+                  style: TextStyle(
+                    fontFamily: 'Cormorant Garamond Bold',
+                    fontSize: 20,
+                  ),
+                ),
                 khight1,
                 Home_container(
                   'MOST POPULAR',
@@ -330,6 +201,46 @@ class _HomeState extends State<Home> {
                     image: NetworkImage(
                         'https://preview.redd.it/whats-your-go-to-color-palette-v0-jzzpwuqnykoa1.jpg?width=640&crop=smart&auto=webp&s=40b0a553da22cee32e5a219ea71881dc8762389c'),
                     fit: BoxFit.cover,
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ),
+        bottomNavigationBar: BottomAppBar(
+          color: Color.fromARGB(255, 14, 13, 13),
+          height: 50,
+          child: Padding(
+            padding: const EdgeInsets.all(18.0),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                GestureDetector(
+                  onTap: () {},
+                  child: Icon(
+                    CupertinoIcons.search,
+                    color: Colors.white,
+                  ),
+                ),
+                GestureDetector(
+                  onTap: () {},
+                  child: const Icon(
+                    CupertinoIcons.heart,
+                    color: Colors.white,
+                  ),
+                ),
+                GestureDetector(
+                  onTap: () {},
+                  child: const Icon(
+                    CupertinoIcons.bag,
+                    color: Colors.white,
+                  ),
+                ),
+                GestureDetector(
+                  onTap: () {},
+                  child: const Icon(
+                    CupertinoIcons.settings,
+                    color: Colors.white,
                   ),
                 ),
               ],

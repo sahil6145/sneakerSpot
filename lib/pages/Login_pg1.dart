@@ -45,7 +45,7 @@ class _LoginState extends State<Login> {
                   setState(
                     () {
                       Future.delayed(
-                          const Duration(seconds: 1),
+                          const Duration(milliseconds: 100),
                           () => Navigator.pushNamed(
                               context, Myroutes.loginRoute));
                       selected_buttons = Button.login;
@@ -68,7 +68,7 @@ class _LoginState extends State<Login> {
                     () {
                       selected_buttons = Button.sign_in;
                       Future.delayed(
-                          const Duration(seconds: 1),
+                          const Duration(milliseconds: 100),
                           () => Navigator.pushNamed(
                               context, Myroutes.SigninRoute));
                     },

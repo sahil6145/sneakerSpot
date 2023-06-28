@@ -1,26 +1,42 @@
 import 'package:flutter/material.dart';
 
-const Color activeColour = Color.fromRGBO(236, 233, 233, 1);
+const Color activeColour = Colors.white;
 const Color inActiveColour = Color.fromRGBO(85, 82, 82, 0.612);
+
 final ktheme = ThemeData(
-  textTheme: TextTheme(
+  textTheme: const TextTheme(
     bodyMedium: TextStyle(
       fontFamily: 'Raleway',
     ),
   ),
 );
 
-final khight = SizedBox(
+const khight = SizedBox(
   height: 5,
 );
-final khight1 = SizedBox(
+const khight1 = SizedBox(
   height: 10,
 );
-final kgap = SizedBox(
+const kgap = SizedBox(
   width: 5,
 );
-final kgap1 = SizedBox(
+const kgap1 = SizedBox(
   width: 10,
+);
+
+const exploreContainer = BoxDecoration(
+  gradient: LinearGradient(
+    colors: [
+      Color.fromRGBO(11, 16, 16, 10),
+      Color.fromRGBO(147, 173, 176, 60),
+    ],
+    begin: Alignment.topCenter,
+    end: Alignment.bottomCenter,
+  ),
+  borderRadius: BorderRadius.only(
+    bottomLeft: Radius.circular(40),
+    bottomRight: Radius.circular(40),
+  ),
 );
 
 const kgradiant = LinearGradient(
@@ -42,6 +58,12 @@ const backgroundGradiant = LinearGradient(
 );
 
 const textStyle = TextStyle(
-  fontFamily: 'Raleway',
+  //fontFamily: 'Raleway',
   fontSize: 13,
+  color: Colors.black,
+);
+
+const cardName = TextStyle(
+  fontSize: 15,
+  fontFamily: 'Cormorant Garamond Light',
 );

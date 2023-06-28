@@ -30,6 +30,7 @@ dependencies:
   
   
   cupertino_icons: ^1.0.5
+  animated_text_kit: ^4.2.2
 
 dev_dependencies:
   flutter_test:
@@ -62,7 +63,7 @@ flutter:
     - family: Cormorant Garamond
       fonts:
         - asset: fonts/CormorantGaramond-Italic.ttf
-        - asset: fonts/CormorantGaramond-Light.ttf
+        
     - family: Raleway
       fonts:
         - asset:  fonts/Raleway-VariableFont_wght.ttf
@@ -70,6 +71,12 @@ flutter:
     - family: Cormorant Garamond Bold
       fonts:
         - asset:  fonts/CormorantGaramond-Bold.ttf
+    - family: Cormorant Garamond Light
+      fonts:
+        - asset: fonts/CormorantGaramond-Light.ttf
+    - family: Crimson Text 
+      fonts:
+        - asset: fonts/CrimsonText-Italic.ttf
           
   #   - family: Trajan Pro
   #     fonts:

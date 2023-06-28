@@ -11,17 +11,17 @@ class Home_container extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Stack(
+    return Column(
       children: [
         GestureDetector(
-          // onTap: Onpress,
+          onTap: Onpress,
           child: Container(
             margin: const EdgeInsets.all(25),
             height: 300,
             width: 400,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(40),
-              color: Colors.amber,
+              color: Colors.transparent,
             ),
             child: ClipRRect(
               borderRadius: BorderRadius.all(Radius.circular(40)),
@@ -29,7 +29,6 @@ class Home_container extends StatelessWidget {
             ),
           ),
         ),
-       
         Align(
           alignment: Alignment.bottomCenter,
           child: Text(

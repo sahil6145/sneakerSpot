@@ -17,9 +17,10 @@ class Sign_in_Buttons extends StatelessWidget {
       child: Center(
         child: Text(
           buttonName,
-          style: TextStyle(
-            fontFamily: 'Cormorant Garamond',
-            fontSize: 18,
+          style: const TextStyle(
+            fontWeight: FontWeight.bold,
+            fontFamily: 'Cormorant Garamond Light',
+            fontSize: 20,
           ),
         ),
       ),

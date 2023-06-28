@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:sneaker_spot/Refactor/textfield.dart';
 import 'package:sneaker_spot/consts.dart';
 import 'package:sneaker_spot/specialVariable.dart';
-import 'package:cupertino_icons/cupertino_icons.dart';
+import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:sneaker_spot/utilities/routes.dart';
 
 Button selected = Button.sign_in;
@@ -18,7 +18,7 @@ class _Login_pgState extends State<Login_pg> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      decoration: BoxDecoration(
+      decoration: const BoxDecoration(
         image: DecorationImage(
           image: AssetImage("images/login_page1.png"),
           fit: BoxFit.fill,
@@ -30,20 +30,20 @@ class _Login_pgState extends State<Login_pg> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              SizedBox(
+              const SizedBox(
                 height: 140,
               ),
-              Text(
+              const Text(
                 "WELCOME",
                 style: TextStyle(
                     fontFamily: 'Raleway',
                     fontWeight: FontWeight.bold,
                     fontSize: 35),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 10,
               ),
-              Text(
+              const Text(
                 "GLAD TO SEE YOU ",
                 style: TextStyle(
                   fontFamily: 'Raleway',
@@ -55,7 +55,7 @@ class _Login_pgState extends State<Login_pg> {
                 'Enter your Email',
                 'Email Id',
                 false,
-                Icon(
+                const Icon(
                   CupertinoIcons.mail_solid,
                   color: Colors.black,
                 ),
@@ -64,7 +64,7 @@ class _Login_pgState extends State<Login_pg> {
                 'Enter your password',
                 'Password',
                 true,
-                Icon(
+                const Icon(
                   CupertinoIcons.eye_slash,
                   color: Colors.black,
                 ),
@@ -79,7 +79,7 @@ class _Login_pgState extends State<Login_pg> {
                       onTap: () {
                         print("Forgot password");
                       },
-                      child: Text(
+                      child: const Text(
                         "Fotgot Password ?",
                         style: textStyle,
                       ),
@@ -87,14 +87,14 @@ class _Login_pgState extends State<Login_pg> {
                   ),
                 ],
               ),
-              SizedBox(
+              const SizedBox(
                 height: 30,
               ),
               GestureDetector(
                 onTap: () {
                   setState(() {
                     selected = Button.login;
-                    Future.delayed(Duration(seconds: 1),
+                    Future.delayed(const Duration(milliseconds: 100),
                         () => Navigator.pushNamed(context, Myroutes.HomeRoute));
                   });
                 },
